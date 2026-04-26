@@ -123,7 +123,7 @@
         <div class="cat-body"><div class="cat-body-inner">
           <div class="menu-items">
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/gozleme.jpg" alt="Peynirli Gözleme" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/peynirli-gozleme.jpg" alt="Peynirli Gözleme" loading="lazy"></div>
               <div class="menu-item-text">
                 <h4>Peynirli Gözleme<span class="en">Cheese Flatbread</span></h4>
                 <div class="desc">Beyaz peynir ya da kaşar.</div>
@@ -131,27 +131,27 @@
               <div class="price">300 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/gozleme.jpg" alt="Kıymalı Gözleme" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/kiymali-gozleme.jpg" alt="Kıymalı Gözleme" loading="lazy"></div>
               <div class="menu-item-text"><h4>Kıymalı Gözleme<span class="en">Minced Meat</span></h4></div>
               <div class="price">320 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/gozleme.jpg" alt="Ispanaklı Gözleme" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/ispanakli-gozleme.jpg" alt="Ispanaklı Gözleme" loading="lazy"></div>
               <div class="menu-item-text"><h4>Ispanaklı Gözleme<span class="en">Spinach</span></h4></div>
               <div class="price">300 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/gozleme.jpg" alt="Patatesli Gözleme" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/patatesli-gozleme.jpg" alt="Patatesli Gözleme" loading="lazy"></div>
               <div class="menu-item-text"><h4>Patatesli Gözleme<span class="en">Potato</span></h4></div>
               <div class="price">300 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/gozleme.jpg" alt="Çikolatalı Gözleme" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/cikolatali-gozleme.jpg" alt="Çikolatalı Gözleme" loading="lazy"></div>
               <div class="menu-item-text"><h4>Çikolatalı Gözleme<span class="en">Chocolate</span></h4></div>
               <div class="price">300 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/gozleme.jpg" alt="Karışık Gözleme" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/karisik-gozleme.jpg" alt="Karışık Gözleme" loading="lazy"></div>
               <div class="menu-item-text">
                 <h4>Karışık Gözleme<span class="en">Mixed</span></h4>
                 <div class="desc">İstediğiniz 2 çeşit.</div>
@@ -177,27 +177,27 @@
               <div class="price">150 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/lahmacun.jpg" alt="Kaşarlı Lahmacun" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/kasarli-lahmacun.jpg" alt="Kaşarlı Lahmacun" loading="lazy"></div>
               <div class="menu-item-text"><h4>Kaşarlı Lahmacun</h4></div>
               <div class="price">180 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/pide.jpg" alt="Kaşarlı Pide" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/kasarli-pide.jpg" alt="Kaşarlı Pide" loading="lazy"></div>
               <div class="menu-item-text"><h4>Kaşarlı Pide</h4></div>
               <div class="price">250 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/pide.jpg" alt="Kıymalı Pide" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/kiymali-pide.jpg" alt="Kıymalı Pide" loading="lazy"></div>
               <div class="menu-item-text"><h4>Kıymalı Pide</h4></div>
               <div class="price">300 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/pide.jpg" alt="Kavurmalı Pide" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/kavurmali-pide.jpg" alt="Kavurmalı Pide" loading="lazy"></div>
               <div class="menu-item-text"><h4>Kavurmalı Pide</h4></div>
               <div class="price">350 ₺</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item-img"><img src="assets/img/menu/pide.jpg" alt="Kuşkaş Pide" loading="lazy"></div>
+              <div class="menu-item-img"><img src="assets/img/menu/kuskas-pide.jpg" alt="Kuşkaş Pide" loading="lazy"></div>
               <div class="menu-item-text"><h4>Kuşkaş Pide</h4></div>
               <div class="price">380 ₺</div>
             </div>
@@ -559,17 +559,31 @@
       const trigger = cat.querySelector('.cat-trigger');
       trigger.addEventListener('click', () => {
         const willOpen = !cat.classList.contains('open');
+        // Trigger'ın ekrandaki yerini açma/kapama yapmadan ÖNCE al
+        const triggerTopBefore = trigger.getBoundingClientRect().top;
+
         document.querySelectorAll('[data-cat].open').forEach(c => {
           c.classList.remove('open');
           c.querySelector('.cat-trigger').setAttribute('aria-expanded', 'false');
         });
+
         if (willOpen) {
           cat.classList.add('open');
           trigger.setAttribute('aria-expanded', 'true');
-          setTimeout(() => {
-            const top = cat.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top, behavior: 'smooth' });
-          }, 60);
+          // Yalnızca trigger görünür alanda DEĞİLSE scroll et
+          // (üstten 80px navbar'ın altına denk gelecek şekilde)
+          requestAnimationFrame(() => {
+            const rect = trigger.getBoundingClientRect();
+            const navOffset = 80;
+            // Trigger üstte gizliyse ya da viewport'tan tamamen aşağıdaysa scroll et
+            if (rect.top < navOffset || rect.top > window.innerHeight - 120) {
+              window.scrollTo({
+                top: rect.top + window.scrollY - navOffset,
+                behavior: 'smooth'
+              });
+            }
+            // Aksi halde hiç dokunma — kullanıcı tıkladığı yerde kalır
+          });
         }
       });
     });
