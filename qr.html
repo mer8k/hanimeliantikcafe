@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karekod Menü — Şile Hanımeli Antik Cafe</title>
+  <meta name="description" content="Şile Hanımeli Antik Cafe karekodlu menü. Telefonunuzla okutarak tüm menüye anında ulaşın." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <header class="navbar no-print">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-text">Hanımeli<small>ANTİK CAFE · ŞİLE</small></span>
+      </a>
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="index.html">Anasayfa</a></li>
+        <li><a href="menu.html" class="cta">Menü</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="qr-page">
+    <div class="qr-card">
+      <h1>Hanımeli Antik Cafe</h1>
+      <div class="sub">Karekod Menü</div>
+
+      <div id="qrcode" aria-label="Menü karekodu"></div>
+
+      <div class="scan-text">Menüyü görmek için okutun</div>
+      <div class="scan-text-en">Scan to view our menu</div>
+
+      <div class="qr-url" id="qr-url">https://hanimeliantikcafe.com/menu.html</div>
+
+      <div class="qr-actions no-print">
+        <button onclick="window.print()">Yazdır</button>
+        <button onclick="downloadQR()">PNG İndir</button>
+        <button onclick="changeUrl()">URL Değiştir</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const defaultUrl = (location.protocol.startsWith('http'))
+      ? new URL('menu.html', location.href).href
+      : 'https://hanimeliantikcafe.com/menu.html';
+
+    let currentUrl = localStorage.getItem('hanimeli_qr_url') || defaultUrl;
+
+    const qrEl = document.getElementById('qrcode');
+    const urlEl = document.getElementById('qr-url');
+
+    function renderQR(url) {
+      qrEl.innerHTML = '';
+      new QRCode(qrEl, {
+        text: url, width: 280, height: 280,
+        colorDark: '#0d3a5c', colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      urlEl.textContent = url;
+    }
+
+    function downloadQR() {
+      const img = qrEl.querySelector('img') || qrEl.querySelector('canvas');
+      if (!img) return;
+      const link = document.createElement('a');
+      link.download = 'hanimeli-menu-qr.png';
+      link.href = img.tagName === 'IMG' ? img.src : img.toDataURL('image/png');
+      link.click();
+    }
+
+    function changeUrl() {
+      const yeni = prompt('Karekoda gömülecek menü adresi:', currentUrl);
+      if (yeni && yeni.trim()) {
+        currentUrl = yeni.trim();
+        localStorage.setItem('hanimeli_qr_url', currentUrl);
+        renderQR(currentUrl);
+      }
+    }
+
+    renderQR(currentUrl);
+  </script>
+</body>
+</html>

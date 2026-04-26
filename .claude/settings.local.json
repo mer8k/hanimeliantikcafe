@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://en.wikipedia.org/api/rest_v1/page/summary/Lahmacun\")",
+      "Bash(cat)",
+      "Bash(bash /tmp/download_menu.sh)",
+      "Bash(bash /tmp/download_menu3.sh)",
+      "Bash(curl -sL --max-time 30 -A \"HanimeliCafeWebsite/1.0 \\(mert@example.com\\)\" -o /tmp/test.jpg \"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Ac%C4%B1l%C4%B1_Lahmacun.jpg/960px-Ac%C4%B1l%C4%B1_Lahmacun.jpg\")",
+      "Read(//tmp/**)",
+      "Bash(curl -sL --max-time 30 -H 'User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36' -H 'Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8' -H 'Accept-Language: tr-TR,tr;q=0.9,en;q=0.8' -o /tmp/test.jpg https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Ac%C4%B1l%C4%B1_Lahmacun.jpg/960px-Ac%C4%B1l%C4%B1_Lahmacun.jpg)",
+      "Bash(curl -sI -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Chebureki.jpg/800px-Chebureki.jpg\")",
+      "Bash(curl -sL --max-time 30 -H 'User-Agent: __TRACKED_VAR__' -o assets/img/menu/sutlac.jpg 'https://images.unsplash.com/photo-1517686748843-bb360cfc62b5?w=800&h=800&fit=crop&auto=format&q=80')"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\mert\\Desktop\\hanimeliantikcafe",
+      "\\tmp"
+    ]
+  }
+}
